@@ -1,13 +1,13 @@
 import { Hono } from 'jsr:@hono/hono';
 
-const functionName = 'hello-world'
+const functionName = 'generate'
 const app = new Hono().basePath(`/${functionName}`)
 
-app.get('', (c) => {
+app.post('', (c) => {
   // Image of person and image of clothing
   // Generate image using ai api
   // Return image url
-  return new Response('Hello World!')
+  return new Response('Image generated!')
 });
 
 Deno.serve(app.fetch);
