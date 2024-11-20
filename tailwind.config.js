@@ -4,11 +4,16 @@ export default {
   theme: {
     extend: {
       borderRadius:{
-
+        button:'10px'
       },
-      colors:{
-        offWhite: '#E1E1E1',
-      }
+      backgroundColor:{
+        primary:'#363636',
+        secondary: '#FFFAFA',
+      },
+      textColor:{
+        primary: '#FFFAFA',
+        secondary:'#3B3B3B'
+      },
     },
 
   },
