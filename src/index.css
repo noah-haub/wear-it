@@ -15,6 +15,7 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   @apply bg-primary text-primary;
+  font-family: "Inter";
 }
 
 /* Remove default margin in favour of better control in authored CSS */
