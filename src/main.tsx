@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import "./index.css";
 import { OnboardingOverview } from "./features/onboarding/components/OnboardingOverview";
+import { OnboardingYourPicture } from "./features/onboarding/components/OnboardingYourPicture";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     path: "/onboarding",
     children: [
       { path: "", element: <OnboardingOverview /> },
-      { path: "your-picture", element: null },
+      { path: "your-picture", element: <OnboardingYourPicture /> },
       { path: "desired-clothing", element: null },
       { path: "result", element: null },
     ],
