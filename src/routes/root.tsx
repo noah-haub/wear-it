@@ -8,7 +8,7 @@ export default function Root() {
   navigate("/home");
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center gap-3">
+    <div className="flex flex-col items-center justify-center h-screen">
       <Button onClick={() => navigate(routePaths.HOME)}>Home</Button>
       <Button onClick={() => navigate(routePaths.ONBOARDING)}>
         Onboarding
