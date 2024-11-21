@@ -1,14 +1,10 @@
 import ProgressiveImage from "@/shared/components/ProgressiveImage";
 import Text from "@/shared/components/Text";
-import { Star, X } from "lucide-react";
-import { FC, useState } from "react";
-import { Result } from "../hooks/useResults";
-import { FormattedDate } from "react-intl";
-import { Dialog, DialogClose, DialogTrigger } from "@/shared/components/Dialog";
-import { DialogContent } from "@radix-ui/react-dialog";
-import { Button } from "@/shared/components/Button";
-import { motion } from "motion/react";
 import { ImageViewer } from "antd-mobile";
+import { Star } from "lucide-react";
+import { FC, useState } from "react";
+import { FormattedDate } from "react-intl";
+import { Result } from "../hooks/useResults";
 
 interface Props {
   result: Result;
