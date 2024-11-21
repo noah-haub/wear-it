@@ -10,6 +10,8 @@ import { IntlProvider } from "react-intl";
 import { OnboardingDesiredClothing } from "./features/onboarding/components/OnboardingDesiredClothing";
 import { OnboardingResult } from "./features/onboarding/components/OnboardingResult";
 import "./index.css";
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { pokemonApi } from "./shared/utils/base.api";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +37,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no viewport-fit=cover"
     />
     <IntlProvider locale="en">
-      <RouterProvider router={router} />
+      <ApiProvider api={pokemonApi}>
+        <RouterProvider router={router} />
+      </ApiProvider>
     </IntlProvider>
   </React.StrictMode>
 );
