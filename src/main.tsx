@@ -11,7 +11,7 @@ import { OnboardingDesiredClothing } from "./features/onboarding/components/Onbo
 import { OnboardingResult } from "./features/onboarding/components/OnboardingResult";
 import "./index.css";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
-import { pokemonApi } from "./shared/utils/base.api";
+import { wearItApi } from "./shared/utils/base.api";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +37,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no viewport-fit=cover"
     />
     <IntlProvider locale="en">
-      <ApiProvider api={pokemonApi}>
+      <ApiProvider api={wearItApi}>
         <RouterProvider router={router} />
       </ApiProvider>
     </IntlProvider>
