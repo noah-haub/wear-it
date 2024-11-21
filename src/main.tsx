@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import { OnboardingOverview } from "./features/onboarding/screens/OnboardingOverview";
 import { OnboardingYourPicture } from "./features/onboarding/screens/OnboardingYourPicture";
@@ -12,6 +12,7 @@ import { OnboardingResult } from "./features/onboarding/screens/OnboardingResult
 import "./index.css";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { wearItApi } from "./shared/utils/base.api";
+import { OnboardingContextProvider } from "./features/onboarding/context/OnboardingContext";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/onboarding",
+    element: (
+      <OnboardingContextProvider>
+        <Outlet />
+      </OnboardingContextProvider>
+    ),
+
     children: [
       { path: "", element: <OnboardingOverview /> },
       { path: "your-picture", element: <OnboardingYourPicture /> },

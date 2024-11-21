@@ -5,9 +5,11 @@ import { Button } from "@/shared/components/Button";
 import { useNavigate } from "react-router";
 import { ChangeEvent, useRef } from "react";
 import { routePaths } from "@/routes/routePaths";
+import { useOnboardingContext } from "../context/OnboardingContext";
 
 export const OnboardingDesiredClothing = () => {
   const navigate = useNavigate();
+  const { setClothingPicture } = useOnboardingContext();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const triggerUpload = () => {
@@ -17,6 +19,12 @@ export const OnboardingDesiredClothing = () => {
   };
 
   const handleUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    setClothingPicture(file);
     navigate(routePaths.ONBOARDING_RESULT);
   };
 

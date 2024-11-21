@@ -4,9 +4,33 @@ import backgroundImageSrc from "@/assets/onboarding_result_background.png";
 import { Button } from "@/shared/components/Button";
 import { routePaths } from "@/routes/routePaths";
 import { useNavigate } from "react-router";
+import { useGenerateResult } from "../hooks/useGenerateResult";
+import { useContext, useEffect } from "react";
+import { useOnboardingContext } from "../context/OnboardingContext";
 
 export const OnboardingResult = () => {
   const navigate = useNavigate();
+  const { clothingPicture, personPicture } = useOnboardingContext();
+
+  const { generateResult, isLoading, isSuccess } = useGenerateResult();
+
+  const handleGenerateResult = () => {
+    generateResult({
+      personImageUrl: personPicture,
+      clothingImageUrl: clothingPicture,
+    });
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate(routePaths.HOME);
+    }
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center">Loading...</div>;
+  }
+
   return (
     <OnboardingLayout backgroundImageSrc={backgroundImageSrc}>
       <div className="flex flex-col items-center justify-between h-full">
@@ -14,7 +38,7 @@ export const OnboardingResult = () => {
           <Text variant="title">Strike a pose!</Text>
           <Text>Upload your best selfie or full-body shot.</Text>
         </div>
-        <Button onClick={() => navigate(routePaths.HOME)}>Go Home</Button>
+        <Button onClick={handleGenerateResult}>Go Home</Button>
       </div>
     </OnboardingLayout>
   );

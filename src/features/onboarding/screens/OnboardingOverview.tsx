@@ -7,6 +7,7 @@ import { routePaths } from "@/routes/routePaths";
 
 export const OnboardingOverview = () => {
   const navigate = useNavigate();
+
   return (
     <OnboardingLayout>
       <div className="flex flex-col gap-48 items-center">

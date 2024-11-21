@@ -1,4 +1,5 @@
 import { Result } from "@/features/home/hooks/useResults";
+import { GenerateResultPayload } from "@/features/onboarding/hooks/useGenerateResult";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const wearItApi = createApi({
@@ -10,7 +11,14 @@ export const wearItApi = createApi({
     getResults: builder.query<Result[], void>({
       query: () => "images",
     }),
+    generateResult: builder.mutation<Result, GenerateResultPayload>({
+      query: ({ personImageUrl, clothingImageUrl }) => ({
+        url: "images",
+        method: "POST",
+        body: { personImageUrl, clothingImageUrl },
+      }),
+    }),
   }),
 });
 
-export const { useGetResultsQuery } = wearItApi;
+export const { useGetResultsQuery, useGenerateResultMutation } = wearItApi;
