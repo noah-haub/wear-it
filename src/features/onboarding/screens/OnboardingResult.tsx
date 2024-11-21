@@ -5,19 +5,19 @@ import { Button } from "@/shared/components/Button";
 import { routePaths } from "@/routes/routePaths";
 import { useNavigate } from "react-router";
 import { useGenerateResult } from "../hooks/useGenerateResult";
-import { useContext, useEffect } from "react";
-import { useOnboardingContext } from "../context/OnboardingContext";
+import { useEffect } from "react";
+import { useImageGeneratorContext } from "../context/ImageGeneratorContext";
 
 export const OnboardingResult = () => {
   const navigate = useNavigate();
-  const { clothingPicture, personPicture } = useOnboardingContext();
+  const { clothingImageUrl, personImageUrl } = useImageGeneratorContext();
 
   const { generateResult, isLoading, isSuccess } = useGenerateResult();
 
   const handleGenerateResult = () => {
     generateResult({
-      personImageUrl: personPicture,
-      clothingImageUrl: clothingPicture,
+      personImageUrl: personImageUrl,
+      clothingImageUrl: clothingImageUrl,
     });
   };
 

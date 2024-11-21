@@ -3,13 +3,14 @@ import { OnboardingLayout } from "../components/OnboardingLayout";
 import backgroundImageSrc from "@/assets/desired_clothing_background.png";
 import { Button } from "@/shared/components/Button";
 import { useNavigate } from "react-router";
-import { ChangeEvent, useRef } from "react";
+import { useRef } from "react";
 import { routePaths } from "@/routes/routePaths";
-import { useOnboardingContext } from "../context/OnboardingContext";
+import { useImageGeneratorContext } from "../context/ImageGeneratorContext";
+import { InputUploadPicture } from "@/shared/components/InputUploadPicture";
 
 export const OnboardingDesiredClothing = () => {
   const navigate = useNavigate();
-  const { setClothingPicture } = useOnboardingContext();
+  const { setClothingImageUrl } = useImageGeneratorContext();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const triggerUpload = () => {
@@ -18,13 +19,8 @@ export const OnboardingDesiredClothing = () => {
     }
   };
 
-  const handleUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) {
-      return;
-    }
-
-    setClothingPicture(file);
+  const handleUpload = (file: File) => {
+    setClothingImageUrl(file);
     navigate(routePaths.ONBOARDING_RESULT);
   };
 
@@ -36,13 +32,7 @@ export const OnboardingDesiredClothing = () => {
           <Text>Drop in a picture of the clothes you’re eyeing.</Text>
         </div>
         <Button onClick={triggerUpload}>Next</Button>
-        <input
-          ref={inputRef}
-          onChange={handleUpload}
-          className="hidden"
-          type="file"
-          accept="image/*"
-        />
+        <InputUploadPicture ref={inputRef} onChange={handleUpload} />
       </div>
     </OnboardingLayout>
   );

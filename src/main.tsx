@@ -12,7 +12,7 @@ import { OnboardingResult } from "./features/onboarding/screens/OnboardingResult
 import "./index.css";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { wearItApi } from "./shared/utils/base.api";
-import { OnboardingContextProvider } from "./features/onboarding/context/OnboardingContext";
+import { ImageGeneratorContextProvider } from "./features/onboarding/context/ImageGeneratorContext";
 
 const router = createBrowserRouter([
   {
@@ -22,9 +22,9 @@ const router = createBrowserRouter([
   {
     path: "/onboarding",
     element: (
-      <OnboardingContextProvider>
+      <ImageGeneratorContextProvider>
         <Outlet />
-      </OnboardingContextProvider>
+      </ImageGeneratorContextProvider>
     ),
 
     children: [
