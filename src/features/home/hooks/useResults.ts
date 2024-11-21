@@ -1,8 +1,4 @@
-import {
-  useGetPokemonByNameQuery,
-  useGetResultsQuery,
-} from "@/shared/utils/base.api";
-import { useEffect, useState } from "react";
+import { useGetResultsQuery } from "@/shared/utils/base.api";
 
 export type Result = {
   id: number;
