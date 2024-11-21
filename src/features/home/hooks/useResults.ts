@@ -6,6 +6,7 @@ export type Result = {
   rating: number;
   createdAt: string;
 };
+
 const useResults = () => {
   const { data, isLoading } = useGetResultsQuery();
 
