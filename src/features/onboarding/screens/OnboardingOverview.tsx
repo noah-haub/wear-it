@@ -4,6 +4,7 @@ import { Button } from "@/shared/components/Button";
 import Text from "@/shared/components/Text";
 import { useNavigate } from "react-router";
 import { routePaths } from "@/routes/routePaths";
+import { ChevronRight } from "lucide-react";
 
 export const OnboardingOverview = () => {
   const navigate = useNavigate();
@@ -14,12 +15,13 @@ export const OnboardingOverview = () => {
         <div className="flex flex-col gap-2 items-center">
           <MainLogo />
           <Text variant="title">WearIt</Text>
-          <Text className="text-center">
+          <Text className="text-center font-medium text-lg px-6 pt-10">
             Changing the fashion-game one outfit at a time.
           </Text>
         </div>
         <Button onClick={() => navigate(routePaths.ONBOARDING_YOUR_PICTURE)}>
-          {`Try on clothes ->`}
+          {`Try on clothes`}
+          <ChevronRight size={24} />
         </Button>
       </div>
     </OnboardingLayout>
