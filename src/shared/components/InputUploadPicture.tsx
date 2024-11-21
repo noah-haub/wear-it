@@ -20,7 +20,6 @@ export const InputUploadPicture = forwardRef<HTMLInputElement, Props>(
         onChange={handleChange}
         type="file"
         className="hidden"
-        capture="environment"
         accept="image/*"
       />
     );
