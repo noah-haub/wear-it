@@ -1,4 +1,5 @@
 import { Button } from "@/shared/components/Button";
+import { Plus, X } from "lucide-react";
 import { motion } from "motion/react";
 
 type Props = {
@@ -33,8 +34,8 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
             >
                 <div className="flex justify-between items-center">
                     <h2 className="text-xl font-normal">Generation</h2>
-                    <button className="bg-lightGray rounded-full size-8 p-1" onClick={() => setShowModal(false)}>
-                        x
+                    <button className="bg-lightGray rounded-full size-8 p-1 flex items-center justify-center" onClick={() => setShowModal(false)}>
+                        <X size={16} />
                     </button>
                 </div>
 
@@ -46,12 +47,12 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
                         </p>
                     </div>
                     <button
-                        className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed"
+                        className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed flex items-center justify-center"
                         onClick={() => {
                             // TODO: Add input for image
                         }}
                     >
-                        +
+                        <Plus size={20} />
                     </button>
                 </div>
 
@@ -61,12 +62,12 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
                         <p className="text-base font-normal text-black/50">Upload a picture of the clothes you want to try.</p>
                     </div>
                     <button
-                        className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed"
+                        className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed flex items-center justify-center"
                         onClick={() => {
                             // TODO: Add input for image
                         }}
                     >
-                        +
+                        <Plus size={20} />
                     </button>
                 </div>
 
