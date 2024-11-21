@@ -27,12 +27,12 @@ export const Navbar = React.forwardRef<
 
   return (
     <>
-      <div className="h-[88px] " />
-      <div className="top-0 left-0 right-0 fixed h-[88px]">
+      <div className="safe-area-inset-top h-[88px] " />
+      <div className="safe-area-inset-top-fixed left-0 right-0 fixed h-[88px]">
         <nav
           ref={ref}
           className={cn(
-            "w-full bg-white justify-between flex items-center px-6 py-4 fixed top-0 left-0 right-0 position-fixed"
+            "w-full bg-white justify-between flex items-center px-6 py-4 fixed "
           )}
           {...props}
         />

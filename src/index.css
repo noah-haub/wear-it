@@ -18,6 +18,14 @@ html {
   /* font-family: "Inter"; */
 }
 
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-inset-top-fixed {
+  top: env(safe-area-inset-top);
+}
+
 /* Remove default margin in favour of better control in authored CSS */
 body,
 h1,
