@@ -1,1 +1,0 @@
-ALTER TABLE "results" ADD COLUMN "test" text NOT NULL;
