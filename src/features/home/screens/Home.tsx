@@ -1,9 +1,8 @@
 import { Navbar, NavbarActionItem, NavbarPageName } from "@/shared/components/NavBar";
-import ProgressiveImage from "@/shared/components/ProgressiveImage";
-import { Star } from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import { FC, useState } from "react";
 import { ModalGenerateImage } from "../components/ModalGenerateImage";
+import ResultCard from "../components/ResultCard";
 import ResultCardSkeleton from "../components/ResultCardSkeleton";
 import useResults from "../hooks/useResults";
 
@@ -30,23 +29,7 @@ const Home: FC = () => {
                         <ResultCardSkeleton />
                     </>
                 ) : results && results?.length > 0 ? (
-                    results.map((result) => (
-                        <div key={result.id} className="bg-lightGray rounded-xl p-1.5 flex flex-col gap-1.5 text-center">
-                            <ProgressiveImage src={result.imageUrl} className="w-full aspect-square rounded-lg object-cover" />
-                            <div className="flex flex-col gap-0 mx-auto">
-                                <div className="flex flex-row gap-1">
-                                    {Array.from({ length: result.rating }).map((_, index) => (
-                                        <Star key={index} fill="#FFE821" strokeWidth={0} />
-                                    ))}
-                                    {Array.from({ length: 5 - result.rating }).map((_, index) => (
-                                        <Star key={index} fill="#DDDDDD" strokeWidth={0} />
-                                    ))}
-                                </div>
-                                <p className="text-lg font-medium">AI-Rating</p>
-                            </div>
-                            <p className="text-sm text-black/50">{new Date(result.createdAt).toLocaleDateString()}</p>
-                        </div>
-                    ))
+                    results.map((result) => <ResultCard result={result} />)
                 ) : (
                     <div>No images yet</div>
                 )}

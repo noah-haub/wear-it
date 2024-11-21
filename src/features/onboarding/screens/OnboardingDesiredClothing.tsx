@@ -1,5 +1,5 @@
 import Text from "@/shared/components/Text";
-import { OnboardingLayout } from "./OnboardingLayout";
+import { OnboardingLayout } from "../components/OnboardingLayout";
 import backgroundImageSrc from "@/assets/desired_clothing_background.png";
 import { Button } from "@/shared/components/Button";
 import { useNavigate } from "react-router";
@@ -17,7 +17,6 @@ export const OnboardingDesiredClothing = () => {
   };
 
   const handleUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log("current file", event.target.files?.[0]);
     navigate(routePaths.ONBOARDING_RESULT);
   };
 
@@ -32,9 +31,8 @@ export const OnboardingDesiredClothing = () => {
         <input
           ref={inputRef}
           onChange={handleUpload}
-          type="file"
           className="hidden"
-          capture="environment"
+          type="file"
           accept="image/*"
         />
       </div>

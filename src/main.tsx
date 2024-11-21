@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
-import { OnboardingOverview } from "./features/onboarding/components/OnboardingOverview";
-import { OnboardingYourPicture } from "./features/onboarding/components/OnboardingYourPicture";
+import { OnboardingOverview } from "./features/onboarding/screens/OnboardingOverview";
+import { OnboardingYourPicture } from "./features/onboarding/screens/OnboardingYourPicture";
 import Home from "./features/home/screens/Home";
 import { IntlProvider } from "react-intl";
-import { OnboardingDesiredClothing } from "./features/onboarding/components/OnboardingDesiredClothing";
-import { OnboardingResult } from "./features/onboarding/components/OnboardingResult";
+import { OnboardingDesiredClothing } from "./features/onboarding/screens/OnboardingDesiredClothing";
+import { OnboardingResult } from "./features/onboarding/screens/OnboardingResult";
 import "./index.css";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { wearItApi } from "./shared/utils/base.api";

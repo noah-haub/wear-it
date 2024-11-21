@@ -1,5 +1,5 @@
 import { MainLogo } from "@/shared/components/MainLogo";
-import { OnboardingLayout } from "./OnboardingLayout";
+import { OnboardingLayout } from "../components/OnboardingLayout";
 import { Button } from "@/shared/components/Button";
 import Text from "@/shared/components/Text";
 import { useNavigate } from "react-router";
