@@ -23,6 +23,7 @@
     "postgres": "^3.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intl": "^7.0.1",
     "react-router-dom": "^6.28.0",
     "tailwind-merge": "^2.5.4"
   },

@@ -6,6 +6,8 @@ import Root from "./routes/root";
 import "./index.css";
 import { OnboardingOverview } from "./features/onboarding/components/OnboardingOverview";
 import { OnboardingYourPicture } from "./features/onboarding/components/OnboardingYourPicture";
+import Home from "./features/home/screens/Home";
+import { IntlProvider } from "react-intl";
 
 const router = createBrowserRouter([
   {
@@ -21,11 +23,13 @@ const router = createBrowserRouter([
       { path: "result", element: null },
     ],
   },
-  { path: "/home", element: null },
+  { path: "/home", element: <Home /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <IntlProvider locale="en">
+      <RouterProvider router={router} />
+    </IntlProvider>
   </React.StrictMode>
 );
