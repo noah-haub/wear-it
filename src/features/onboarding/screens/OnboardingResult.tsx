@@ -1,5 +1,5 @@
 import Text from "@/shared/components/Text";
-import { OnboardingLayout } from "./OnboardingLayout";
+import { OnboardingLayout } from "../components/OnboardingLayout";
 import backgroundImageSrc from "@/assets/onboarding_result_background.png";
 import { Button } from "@/shared/components/Button";
 import { routePaths } from "@/routes/routePaths";
