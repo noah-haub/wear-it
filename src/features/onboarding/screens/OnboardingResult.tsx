@@ -6,7 +6,7 @@ import { routePaths } from "@/routes/routePaths";
 import { useNavigate } from "react-router";
 import { useGenerateResult } from "../hooks/useGenerateResult";
 import { useImageGeneratorContext } from "../context/ImageGeneratorContext";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Mosaic } from "react-loading-indicators";
 import { QueryStatus } from "@reduxjs/toolkit/query";
 
@@ -29,6 +29,20 @@ export const OnboardingResult = () => {
     }
   }, [status]);
 
+  const [time, setTime] = useState(Date.now());
+  const [interval, setIntervalValue] = useState<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    setIntervalValue(setInterval(() => setTime(Date.now()), 10000));
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+    setTime(Date.now());
+  }, []);
+
   const motivationalQuotes = [
     "Patience is not simply the ability to wait – it’s how we behave while we’re waiting. – Joyce Meyer",
     "The two most powerful warriors are patience and time. – Leo Tolstoy",
@@ -48,17 +62,19 @@ export const OnboardingResult = () => {
   ];
 
   const selectedQuote = useMemo(() => {
-    const index = (Math.random() * 100) % 15;
+    const index = Math.floor((Math.random() * 100) % 15);
 
     return motivationalQuotes[index];
-  }, []);
+  }, [time]);
 
   if (isLoading) {
     return (
       <div className="h-screen w-screen flex flex-col gap-10 bg-primary justify-center items-center p-10">
         <Mosaic color={["#8CC1EC"]} />
 
-        <Text className="text-primary">{selectedQuote}</Text>
+        <Text className="text-primary font-semibold text-center text-lg">
+          {selectedQuote}
+        </Text>
       </div>
     );
   }
