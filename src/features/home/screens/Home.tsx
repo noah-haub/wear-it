@@ -1,8 +1,8 @@
 import { FC } from "react";
 import useResults, { Result } from "../hooks/useResults";
-import Text from "@/shared/components/Text";
 import NavBar from "@/shared/components/NavBar";
 import ResultCard from "../components/ResultCard";
+import ResultCardSkeleton from "../components/ResultCardSkeleton";
 
 const Home: FC = () => {
   const { data: results, isLoading } = useResults();
@@ -15,7 +15,16 @@ const Home: FC = () => {
           "w-full h-full grid grid-flow-row md:grid-cols-4 grid-cols-2 justify-between flex-wrap gap-4"
         }
       >
-        {results &&
+        {isLoading ? (
+          <>
+            <ResultCardSkeleton />
+            <ResultCardSkeleton />
+            <ResultCardSkeleton />
+            <ResultCardSkeleton />
+            <ResultCardSkeleton />
+          </>
+        ) : (
+          results &&
           results
             .sort((a: Result, b: Result) => +b.createdAt - +a.createdAt)
             .map((result) => (
@@ -28,7 +37,8 @@ const Home: FC = () => {
                 <ResultCard result={result} key={result.id} />
                 <ResultCard result={result} key={result.id} />
               </>
-            ))}
+            ))
+        )}
       </div>
     </div>
   );

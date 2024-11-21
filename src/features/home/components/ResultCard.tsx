@@ -3,6 +3,7 @@ import { Result } from "../hooks/useResults";
 import { Card, CardContent, CardTitle } from "@/shared/components/Card";
 import { FormattedDate } from "react-intl";
 import Text from "@/shared/components/Text";
+import ProgressiveImage from "@/shared/components/ProgressiveImage";
 
 interface Props {
   result: Result;
@@ -12,10 +13,9 @@ const ResultCard: FC<Props> = ({ result }) => {
   return (
     <Card className={"bg-white text-black"}>
       <CardContent className="flex flex-col gap-2 p-2">
-        <img
+        <ProgressiveImage
           src={result.imageUrl}
-          className="w-full aspect-square rounded-md object-cover"
-          alt={result.id.toString()}
+          className="w-full aspect-square rounded-md"
         />
         <CardTitle>{result.rating}</CardTitle>
         <Text>

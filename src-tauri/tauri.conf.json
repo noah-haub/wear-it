@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "rmb",
+  "productName": "WearIt",
   "version": "0.1.0",
-  "identifier": "com.rmb.test",
+  "identifier": "com.wear.it.app",
   "build": {
     "beforeDevCommand": "yarn dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "rmb",
+        "title": "WearIt",
         "width": 800,
         "height": 600
       }
@@ -26,7 +26,7 @@
     "targets": "all",
     "iOS": {
       "minimumSystemVersion": "13.0",
-      "developmentTeam": "BFU8W8XR43"
+      "developmentTeam": "Z6QTL53XX6"
     },
     "icon": [
       "icons/32x32.png",
