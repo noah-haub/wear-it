@@ -28,7 +28,7 @@ export const Navbar = React.forwardRef<
   return (
     <>
       <div className="safe-area-inset-top h-[88px] " />
-      <div className="safe-area-inset-top-fixed left-0 right-0 fixed h-[88px]">
+      <div className="safe-area-inset-top left-0 right-0 fixed h-[88px] bg-white top-0">
         <nav
           ref={ref}
           className={cn(
@@ -38,7 +38,7 @@ export const Navbar = React.forwardRef<
         />
         <div
           className={cn(
-            "h-full w-full shadow-none transition-shadow",
+            "h-[88px] w-full shadow-none transition-shadow",
             opacity > 0 && "shadow-lg"
           )}
         ></div>
