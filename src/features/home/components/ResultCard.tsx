@@ -45,7 +45,7 @@ const ResultCard: FC<Props> = ({ result }) => {
       </DialogTrigger>
 
       <DialogClose asChild>
-        <DialogContent className="absolute inset-0 flex justify-center items-center bg-primary/25">
+        <DialogContent className="fixed z-50 inset-0 flex justify-center items-center bg-primary/25">
           <motion.div
             className="sm:max-w-md aspect-square rounded-md bg-primary relative"
             animate={{

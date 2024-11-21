@@ -8,11 +8,12 @@ export type Result = {
 };
 
 const useResults = () => {
-  const { data, isLoading } = useGetResultsQuery();
+  const { data, isLoading, refetch } = useGetResultsQuery();
 
   return {
     data,
     isLoading,
+    refetch,
   };
 };
 

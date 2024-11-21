@@ -6,8 +6,8 @@ export type GenerateResultPayload = {
 };
 
 export const useGenerateResult = () => {
-  const [generateResult, { isLoading, isSuccess }] =
+  const [generateResult, { isLoading, isSuccess, status }] =
     useGenerateResultMutation();
 
-  return { generateResult, isLoading, isSuccess };
+  return { generateResult, isLoading, isSuccess, status };
 };
