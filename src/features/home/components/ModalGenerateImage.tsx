@@ -22,7 +22,12 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
                             Upload a picture of yourself or take one right now. Make sure the picture shows everything needed for the clothes you want to try on
                         </p>
                     </div>
-                    <button className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed" onClick={() => setShowModal(false)}>
+                    <button
+                        className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed"
+                        onClick={() => {
+                            // TODO: Add input for image
+                        }}
+                    >
                         +
                     </button>
                 </div>
@@ -32,7 +37,12 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
                         <h3 className="text-xl font-normal">2. The clothes</h3>
                         <p className="text-base font-normal text-black/50">Upload a picture of the clothes you want to try.</p>
                     </div>
-                    <button className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed" onClick={() => setShowModal(false)}>
+                    <button
+                        className="rounded-xl w-full py-6 border-2 border-black/50 text-black/50 border-dashed"
+                        onClick={() => {
+                            // TODO: Add input for image
+                        }}
+                    >
                         +
                     </button>
                 </div>
