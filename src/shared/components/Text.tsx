@@ -5,7 +5,7 @@ import { cn } from "../utils";
 const textVariants = cva("", {
   variants: {
     variant: {
-      title: "text-primary text-5xl",
+      title: "text-primary md:text-5xl text-4xl",
       body: "text-primary text-base",
     },
   },

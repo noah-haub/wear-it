@@ -3,11 +3,13 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
-import "./index.css";
 import { OnboardingOverview } from "./features/onboarding/components/OnboardingOverview";
 import { OnboardingYourPicture } from "./features/onboarding/components/OnboardingYourPicture";
 import Home from "./features/home/screens/Home";
 import { IntlProvider } from "react-intl";
+import { OnboardingDesiredClothing } from "./features/onboarding/components/OnboardingDesiredClothing";
+import { OnboardingResult } from "./features/onboarding/components/OnboardingResult";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +21,8 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <OnboardingOverview /> },
       { path: "your-picture", element: <OnboardingYourPicture /> },
-      { path: "desired-clothing", element: null },
-      { path: "result", element: null },
+      { path: "desired-clothing", element: <OnboardingDesiredClothing /> },
+      { path: "result", element: <OnboardingResult /> },
     ],
   },
   { path: "/home", element: <Home /> },
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no viewport-fit=cover"
+    />
     <IntlProvider locale="en">
       <RouterProvider router={router} />
     </IntlProvider>

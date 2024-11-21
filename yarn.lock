@@ -834,13 +834,6 @@
     "@tauri-apps/cli-win32-ia32-msvc" "2.1.0"
     "@tauri-apps/cli-win32-x64-msvc" "2.1.0"
 
-"@tauri-apps/plugin-barcode-scanner@~2":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@tauri-apps/plugin-barcode-scanner/-/plugin-barcode-scanner-2.0.0.tgz#dca126bd72d8072c9f1642eb3a2fe1c61c24ecc5"
-  integrity sha512-7kSU8C03YJkLbxjEHBwm/rffTwT3gSRXeOz9NVO7HEHuqNujnNjCoUd+VCxemI1HhRCzJSDFoAkeXRWFxUN3jg==
-  dependencies:
-    "@tauri-apps/api" "^2.0.0"
-
 "@tauri-apps/plugin-shell@^2":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@tauri-apps/plugin-shell/-/plugin-shell-2.0.1.tgz#db3ea23e2b34b98ad89e283a87e3e7f7e557f655"

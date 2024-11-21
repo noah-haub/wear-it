@@ -1,3 +1,7 @@
 xcuserdata/
 build/
 Externals/
+DerivedData/
+lerna-debug.log*
+project.pbxproj*
+ExportOptions.plist

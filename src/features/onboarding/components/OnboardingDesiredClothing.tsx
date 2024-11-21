@@ -1,12 +1,12 @@
 import Text from "@/shared/components/Text";
 import { OnboardingLayout } from "./OnboardingLayout";
-import backgroundImageSrc from "@/assets/your_picture_background.png";
+import backgroundImageSrc from "@/assets/desired_clothing_background.png";
 import { Button } from "@/shared/components/Button";
-import { routePaths } from "@/routes/routePaths";
 import { useNavigate } from "react-router";
 import { ChangeEvent, useRef } from "react";
+import { routePaths } from "@/routes/routePaths";
 
-export const OnboardingYourPicture = () => {
+export const OnboardingDesiredClothing = () => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -18,17 +18,17 @@ export const OnboardingYourPicture = () => {
 
   const handleUpload = (event: ChangeEvent<HTMLInputElement>) => {
     console.log("current file", event.target.files?.[0]);
-    navigate(routePaths.ONBOARDING_DESIRED_CLOTHING);
+    navigate(routePaths.ONBOARDING_RESULT);
   };
 
   return (
     <OnboardingLayout backgroundImageSrc={backgroundImageSrc}>
       <div className="flex flex-col items-center justify-between h-full">
         <div className="flex flex-col gap-2 items-center">
-          <Text variant="title">Strike a pose!</Text>
-          <Text>Upload your best selfie or full-body shot.</Text>
+          <Text variant="title">Pick Your Outfit</Text>
+          <Text>Drop in a picture of the clothes you’re eyeing.</Text>
         </div>
-        <Button onClick={triggerUpload}>Pick/take a picture</Button>
+        <Button onClick={triggerUpload}>Next</Button>
         <input
           ref={inputRef}
           onChange={handleUpload}
