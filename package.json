@@ -7,9 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri",
-    "migrate:generate": "drizzle-kit generate",
-    "migrate:up": "drizzle-kit migrate"
+    "tauri": "tauri"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
