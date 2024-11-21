@@ -1,6 +1,6 @@
 import Text from "@/shared/components/Text";
 import { OnboardingLayout } from "../components/OnboardingLayout";
-import backgroundImageSrc from "@/assets/desired_clothing_background.png";
+import backgroundImageSrc from "@/assets/desired_clothing_background.jpg";
 import { Button } from "@/shared/components/Button";
 import { useNavigate } from "react-router";
 import { useRef } from "react";
@@ -31,7 +31,7 @@ export const OnboardingDesiredClothing = () => {
           <Text variant="title">Pick Your Outfit</Text>
           <Text>Drop in a picture of the clothes you’re eyeing.</Text>
         </div>
-        <Button onClick={triggerUpload}>Next</Button>
+        <Button onClick={triggerUpload}>Pick/take a picture</Button>
         <InputUploadPicture ref={inputRef} onChange={handleUpload} />
       </div>
     </OnboardingLayout>

@@ -1,6 +1,6 @@
 import Text from "@/shared/components/Text";
 import { OnboardingLayout } from "../components/OnboardingLayout";
-import backgroundImageSrc from "@/assets/your_picture_background.png";
+import backgroundImageSrc from "@/assets/your_picture_background.jpg";
 import { Button } from "@/shared/components/Button";
 import { routePaths } from "@/routes/routePaths";
 import { useNavigate } from "react-router";

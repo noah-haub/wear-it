@@ -1,6 +1,6 @@
 import Text from "@/shared/components/Text";
 import { OnboardingLayout } from "../components/OnboardingLayout";
-import backgroundImageSrc from "@/assets/onboarding_result_background.png";
+import backgroundImageSrc from "@/assets/onboarding_result_background.jpeg";
 import { Button } from "@/shared/components/Button";
 import { routePaths } from "@/routes/routePaths";
 import { useNavigate } from "react-router";
@@ -48,7 +48,7 @@ export const OnboardingResult = () => {
   ];
 
   const selectedQuote = useMemo(() => {
-    const index = (Math.random() * 100) % 15;
+    const index = Math.round((Math.random() * 100) % 15);
 
     return motivationalQuotes[index];
   }, []);
@@ -58,7 +58,7 @@ export const OnboardingResult = () => {
       <div className="h-screen w-screen flex flex-col gap-10 bg-primary justify-center items-center p-10">
         <Mosaic color={["#8CC1EC"]} />
 
-        <Text className="text-primary">{selectedQuote}</Text>
+        <Text className="text-primary text-center">{selectedQuote}</Text>
       </div>
     );
   }
@@ -67,10 +67,10 @@ export const OnboardingResult = () => {
     <OnboardingLayout backgroundImageSrc={backgroundImageSrc}>
       <div className="flex flex-col items-center justify-between h-full">
         <div className="flex flex-col gap-2 items-center">
-          <Text variant="title">Strike a pose!</Text>
-          <Text>Upload your best selfie or full-body shot.</Text>
+          <Text variant="title">Magic Time!</Text>
+          <Text>Tap "Generate" and watch the outfit come to life on you!</Text>
         </div>
-        <Button onClick={handleGenerateResult}>Go Home</Button>
+        <Button onClick={handleGenerateResult}>Generate</Button>
       </div>
     </OnboardingLayout>
   );

@@ -4,8 +4,9 @@ import { Button } from "@/shared/components/Button";
 import { InputUploadPicture } from "@/shared/components/InputUploadPicture";
 import { Plus, X } from "lucide-react";
 import { motion } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import ImagePreview from "./ImagePreview";
+import { Spinner } from "@/shared/components/Spinner";
 
 type Props = {
   setShowModal: (show: boolean) => void;
@@ -20,7 +21,11 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
   } = useImageGeneratorContext();
   const personImageInputRef = useRef<HTMLInputElement | null>(null);
   const clothingImageInputRef = useRef<HTMLInputElement | null>(null);
-  const { generateResult, isLoading } = useGenerateResult();
+  const {
+    generateResult,
+    isLoading,
+    isSuccess: isGenerateResultSuccess,
+  } = useGenerateResult();
 
   const triggerPersonImageUpload = () => {
     if (personImageInputRef.current) {
@@ -31,6 +36,15 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
   const handlePersonImageChange = (file: File) => {
     setPersonImageUrl(file);
   };
+
+  const handleClearPersonImage = () => {
+    if (!personImageInputRef.current?.value) {
+      return;
+    }
+    personImageInputRef.current.value = "";
+    setPersonImageUrl("");
+  };
+
   const triggerClothingImageUpload = () => {
     if (clothingImageInputRef.current) {
       clothingImageInputRef.current?.click();
@@ -44,6 +58,20 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
   const handleGenerateImage = () => {
     generateResult({ clothingImageUrl, personImageUrl });
   };
+
+  const handleClearClothingImage = () => {
+    if (!clothingImageInputRef.current?.value) {
+      return;
+    }
+    clothingImageInputRef.current.value = "";
+    setClothingImageUrl("");
+  };
+
+  useEffect(() => {
+    if (isGenerateResultSuccess) {
+      setShowModal(false);
+    }
+  }, [isGenerateResultSuccess]);
 
   return (
     <motion.div
@@ -91,7 +119,7 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
 
           {personImageUrl ? (
             <ImagePreview
-              onClose={() => setPersonImageUrl("")}
+              onClose={handleClearPersonImage}
               imageSrc={personImageUrl}
             />
           ) : (
@@ -119,7 +147,7 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
 
           {clothingImageUrl ? (
             <ImagePreview
-              onClose={() => setClothingImageUrl("")}
+              onClose={handleClearClothingImage}
               imageSrc={clothingImageUrl}
             />
           ) : (
@@ -140,11 +168,10 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
         <div className="text-center">
           <Button
             variant="secondary"
-            className="w-fit bg-black text-white"
-            disabled={isLoading}
+            className="w-full bg-black text-white"
             onClick={handleGenerateImage}
           >
-            Generate
+            {isLoading ? <Spinner size="medium" /> : "Generate"}
           </Button>
         </div>
       </motion.div>
