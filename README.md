@@ -1,8 +1,9 @@
-# <div align="center">👕 Wear It 👕</div>
+# <div align="center">👕 Wear It - Frontend 👕</div>
 
 ## What is this?
 
 This is an AI powered mobile app. It allows users upload a picture of themselves as well as an item of clothing. The app will then generate a picture of the user wearing the clothing item.
+This is the frontend of the app.
 
 ## How does it work?
 
