@@ -73,7 +73,8 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
 
                 <div className="text-center">
                     <Button
-                        className="w-fit bg-black text-white"
+                        variant="secondary"
+                        className="w-fit"
                         onClick={() => {
                             // TODO: Generate image
                         }}
