@@ -1,22 +1,22 @@
 import { Navbar, NavbarActionItem, NavbarPageName } from "@/shared/components/NavBar";
 import { Star } from "lucide-react";
-import { FC } from "react";
+import { FC, useState } from "react";
 import useResults from "../hooks/useResults";
 import ResultCardSkeleton from "../components/ResultCardSkeleton";
 import ProgressiveImage from "@/shared/components/ProgressiveImage";
+import { ModalGenerateImage } from "../components/ModalGenerateImage";
 
 const Home: FC = () => {
     const { data: results, isLoading } = useResults();
+
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <>
             <Navbar>
                 <NavbarPageName>Wear It</NavbarPageName>
                 <NavbarActionItem
-                    onClick={() => {
-                        // TODO: open modal
-                        console.log(`🟠🟠🟠 Add clicked`);
-                    }}
+                    onClick={() => setShowModal(true)}
                     className="bg-lightGray rounded-full size-14 p-3"
                 >
                     +
@@ -53,6 +53,7 @@ const Home: FC = () => {
                     <div>No images yet</div>
                 )}
             </div>
+            {showModal && <ModalGenerateImage setShowModal={setShowModal} />}
         </>
     );
 };
