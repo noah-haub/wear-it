@@ -66,9 +66,6 @@ const Home: FC = () => {
             <div>No images yet</div>
           )}
         </div>
-        <AnimatePresence>
-          {showModal && <ModalGenerateImage setShowModal={setShowModal} />}
-        </AnimatePresence>
       </PullToRefresh>
     </>
   );
