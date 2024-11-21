@@ -28,7 +28,7 @@ const Home: FC = () => {
           <Plus size={24} />
         </NavbarActionItem>
       </Navbar>
-      <div className="bg-white w-full grid grid-flow-row md:grid-cols-4 grid-cols-2 justify-between flex-wrap gap-3 px-6 pb-6">
+      <div className="bg-white w-full grid grid-flow-row md:grid-cols-4 grid-cols-2 justify-between flex-wrap gap-3 px-6 pb-6 safe-area-inset-top">
         {isLoading ? (
           <>
             <ResultCardSkeleton />

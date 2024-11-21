@@ -20,7 +20,7 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
   } = useImageGeneratorContext();
   const personImageInputRef = useRef<HTMLInputElement | null>(null);
   const clothingImageInputRef = useRef<HTMLInputElement | null>(null);
-  const { generateResult, isLoading, isSuccess } = useGenerateResult();
+  const { generateResult, isLoading } = useGenerateResult();
 
   const triggerPersonImageUpload = () => {
     if (personImageInputRef.current) {
@@ -139,6 +139,7 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
 
         <div className="text-center">
           <Button
+            variant="secondary"
             className="w-fit bg-black text-white"
             disabled={isLoading}
             onClick={handleGenerateImage}
