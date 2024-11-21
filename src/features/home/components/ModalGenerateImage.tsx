@@ -1,4 +1,5 @@
 import { Button } from "@/shared/components/Button";
+import { motion } from "motion/react";
 
 type Props = {
     setShowModal: (show: boolean) => void;
@@ -6,8 +7,30 @@ type Props = {
 
 export const ModalGenerateImage = ({ setShowModal }: Props) => {
     return (
-        <div className="w-full h-full bg-black/25 fixed top-0 left-0" onClick={() => setShowModal(false)}>
-            <div className="bg-white rounded-t-3xl fixed w-full p-6 bottom-0 flex flex-col gap-8" onClick={(e) => e.stopPropagation()}>
+        <motion.div
+            className="w-full h-full bg-black/25 fixed top-0 left-0"
+            animate={{
+                opacity: [0, 1],
+            }}
+            exit={{
+                opacity: [1, 0],
+            }}
+            onClick={() => setShowModal(false)}
+        >
+            <motion.div
+                className="bg-white rounded-t-3xl fixed w-full p-6 bottom-0 flex flex-col gap-8"
+                animate={{
+                    y: ["100%", "0%"],
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: "easeInOut",
+                }}
+                exit={{
+                    y: ["0%", "100%"],
+                }}
+                onClick={(e) => e.stopPropagation()}
+            >
                 <div className="flex justify-between items-center">
                     <h2 className="text-xl font-normal">Generation</h2>
                     <button className="bg-lightGray rounded-full size-8 p-1" onClick={() => setShowModal(false)}>
@@ -57,7 +80,7 @@ export const ModalGenerateImage = ({ setShowModal }: Props) => {
                         Generate
                     </Button>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
