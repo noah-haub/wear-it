@@ -48,6 +48,10 @@ function Content() {
           setTransitionStage("fadeIn");
           setDisplayLocation(location);
         }
+
+        if (location.pathname === "/home") {
+          setTransitionStage("done");
+        }
       }}
     >
       <Routes location={displayLocation}>
