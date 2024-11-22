@@ -4,7 +4,7 @@ import { Button } from "@/shared/components/Button";
 import Text from "@/shared/components/Text";
 import { useNavigate } from "react-router";
 import { routePaths } from "@/routes/routePaths";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Home } from "lucide-react";
 
 export const OnboardingOverview = () => {
   const navigate = useNavigate();
@@ -12,6 +12,9 @@ export const OnboardingOverview = () => {
   return (
     <OnboardingLayout>
       <div className="flex flex-col gap-48 items-center">
+        <Button className="self-end" onClick={() => navigate(routePaths.HOME)}>
+          <Home />
+        </Button>
         <div className="flex flex-col gap-2 items-center">
           <MainLogo />
           <Text variant="title">WearIt</Text>
