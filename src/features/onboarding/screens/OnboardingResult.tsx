@@ -9,6 +9,7 @@ import { useImageGeneratorContext } from "../context/ImageGeneratorContext";
 import { useEffect, useMemo, useState } from "react";
 import { Mosaic } from "react-loading-indicators";
 import { QueryStatus } from "@reduxjs/toolkit/query";
+import { ChevronRight } from "lucide-react";
 
 export const OnboardingResult = () => {
   const navigate = useNavigate();
@@ -69,12 +70,19 @@ export const OnboardingResult = () => {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-screen flex flex-col gap-10 bg-primary justify-center items-center p-10">
+      <div className="h-screen w-screen flex flex-col gap-10 bg-primary justify-center items-center p-10 relative">
         <Mosaic color={["#8CC1EC"]} />
 
         <Text className="text-primary font-semibold text-center text-lg">
           {selectedQuote}
         </Text>
+
+        <Button
+          className="absolute bottom-4 right-4"
+          onClick={() => navigate(routePaths.HOME)}
+        >
+          Skip for now <ChevronRight size={24} />
+        </Button>
       </div>
     );
   }
